@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+
+html {
+  background: #eeeeee;
+}
+.App {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.5rem;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.btn {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+  padding: 0.8rem 2rem;
+  border-radius: 0.6rem;
+  border: none;
+  background: #3772ff;
+  color: white;
+  transition: box-shadow 0.3s ease-in-out;
+  min-width: 20vw;
+  margin: 10px;
+}
+.btn:hover {
+  box-shadow: 1px 2px 6px 0 #91b2ff, -1px -1px 6px 0 #91b2ff;
+}
+p {
+  letter-spacing: 2px;
+}
+.flex-container {
+  display: flex;
+}
+
+.cell {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.7rem;
+  border-radius: 0.2rem;
+  width: 13.6vw;
+  display: inline-block;
+  padding: 12px 2px;
+  margin: 0.2vw;
+  size: 0.8rem;
+  text-align: center;
+}
+
+.list {
+  width: 46vw;
+  height: 100px;
+}
+.head {
+  height: 25px;
+  padding: 8px 2px;
+  font-size: 0.7rem;
+  border-bottom: 1px solid;
+  border-radius: 0;
+}
+
+.text-r {
+  color: #f03e3e;
+}
+.pink {
+  background: pink;
+}
+
+.skyblue {
+  background: skyblue;
+}
+
+.white {
+  background: #eeeeee;
+  color: #eeeeee;
+}
