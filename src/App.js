@@ -4,8 +4,9 @@ import 'sanitize.css';
 import './App.css';
 
 import MyCalendar2 from './MyCalendar2';
-import LimitController from './LimitController';
 import MonthPicker from './MonthPicker';
+import LimitController from './LimitController';
+
 import CreateDoctor from './CreateDoctor';
 import MyForm from './MyForm';
 
@@ -20,56 +21,64 @@ class App extends Component {
         name: '김종원',
         year: 1,
         color: '#96f2d7',
-        limit: 25
+        limit: 18,
+        count: 0
       },
       {
         id: 1,
         name: '신명얼',
         year: 1,
         color: '#69db7c',
-        limit: 25
+        limit: 18,
+        count: 0
       },
       {
         id: 2,
         name: '장석인',
         year: 2,
         color: '#15aabf',
-        limit: 5
+        limit: 6,
+        count: 0
       },
       {
         id: 3,
         name: '이태호',
         year: 2,
         color: '#4c6ef5',
-        limit: 5
+        limit: 6,
+        count: 0
       },
       {
         id: 4,
         name: '조의환',
         year: 3,
         color: '#ae3ec9',
-        limit: 4
+        limit: 4,
+        count: 0
       },
       {
         id: 5,
         name: '소지섭',
         year: 3,
         color: '#fd7e14',
-        limit: 4
+        limit: 4,
+        count: 0
       },
       {
         id: 6,
         name: '김건중',
         year: 4,
         color: '#f03e3e',
-        limit: 1
+        limit: 1,
+        count: 0
       },
       {
         id: 7,
         name: '이병헌',
         year: 4,
         color: '#fab005',
-        limit: 1
+        limit: 1,
+        count: 0
       }
     ]
   };
@@ -109,14 +118,15 @@ class App extends Component {
           currentMonth={this.state.currentMonth}
         />
         {/* <CreateDoctor /> */}
-        <LimitController
-          currentMonth={this.state.currentMonth}
-          doctors={this.state.doctors}
-        />
         <MyCalendar2
           currentMonth={this.state.currentMonth}
           doctors={this.state.doctors}
         />
+        <LimitController
+          currentMonth={this.state.currentMonth}
+          doctors={this.state.doctors}
+        />
+
         {/* <MyCalendar result={result[0]} msg="그냥 랜덤...연속근무가능" />
         <MyCalendar result={result[1]} msg="연속근무 절대 불가" />
         <MyCalendar result={result[2]} msg="다른조건추가" /> */}

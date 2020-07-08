@@ -88,7 +88,7 @@ class MonthPicker extends Component {
     return (
       <div>
         <MuiThemeProvider theme={lightTheme}>
-          <Paper>
+          <Paper square>
             <Button variant="contained" color="primary">
               {' '}
               {this.state.month}월

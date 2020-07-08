@@ -73,6 +73,12 @@ const themeBase = createMuiTheme({
       root: {
         marginTop: '1em'
       }
+    },
+    MuiAccordionDetails: {
+      root: {
+        display: 'block',
+        padding: 0
+      }
     }
   }
 });
