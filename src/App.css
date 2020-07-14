@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
 
 html {
-  background: #eeeeee;
+  background: #fff;
 }
 .App {
   font-family: 'Noto Sans KR', sans-serif;
@@ -71,8 +71,9 @@ p {
 }
 
 .white {
-  background: #eeeeee;
-  color: #eeeeee;
+  background: #fff;
+  color: #fff;
+  user-select: none;
 }
 .dot {
   margin-right: 0.5rem;
@@ -81,4 +82,23 @@ p {
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
+}
+.backup {
+  color: #666;
+  border-radius: 5px;
+  font-size: 0.6rem;
+  padding: 0 7px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.fadeIn {
+  animation: fadeIn ease 4s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.2u;
+  }
 }

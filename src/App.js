@@ -1,138 +1,61 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 
 import 'sanitize.css';
 import './App.css';
 
 import MyCalendar2 from './MyCalendar2';
 import MonthPicker from './MonthPicker';
-import LimitController from './LimitController';
+import Settings from './settings';
+import { Card, Typography } from '@material-ui/core';
+import { defualtResidents } from './Residents';
 
-import CreateDoctor from './CreateDoctor';
-import MyForm from './MyForm';
+const App = () => {
+  const today = new Date();
+  const [month, setMonth] = useState(today.getMonth() + 2);
+  const [residents, setResidents] = useState(defualtResidents);
+  const [isCreated, setIsCreated] = useState(false); // 테이블이 생성된 상태인지 ?
+  const [nonPref, setNonPref] = useState([15, 16]); // 비선호 일 추가 로직
 
-// 두날짜의 담당자를 바꾸는 기능도 필요함
+  useEffect(() => {
+    console.log('M :', month);
+  }, [month]);
 
-class App extends Component {
-  state = {
-    currentMonth: 7,
-    doctors: [
-      {
-        id: 0,
-        name: '김종원',
-        year: 1,
-        color: '#96f2d7',
-        limit: 18,
-        count: 0
-      },
-      {
-        id: 1,
-        name: '신명얼',
-        year: 1,
-        color: '#69db7c',
-        limit: 18,
-        count: 0
-      },
-      {
-        id: 2,
-        name: '장석인',
-        year: 2,
-        color: '#15aabf',
-        limit: 6,
-        count: 0
-      },
-      {
-        id: 3,
-        name: '이태호',
-        year: 2,
-        color: '#4c6ef5',
-        limit: 6,
-        count: 0
-      },
-      {
-        id: 4,
-        name: '조의환',
-        year: 3,
-        color: '#ae3ec9',
-        limit: 4,
-        count: 0
-      },
-      {
-        id: 5,
-        name: '소지섭',
-        year: 3,
-        color: '#fd7e14',
-        limit: 4,
-        count: 0
-      },
-      {
-        id: 6,
-        name: '김건중',
-        year: 4,
-        color: '#f03e3e',
-        limit: 1,
-        count: 0
-      },
-      {
-        id: 7,
-        name: '이병헌',
-        year: 4,
-        color: '#fab005',
-        limit: 1,
-        count: 0
-      }
-    ]
-  };
+  useEffect(() => {
+    if (!isCreated) {
+      console.log('table cleared'); //테이블이 제거되면 근무일수 카운트 초기화
+      setResidents(
+        residents.map(x => {
+          return (x.count = 0), x;
+        })
+      );
+    }
+  }, [isCreated]);
 
-  handleCreate = data => {
-    console.log(data.month);
-
-    const { currentMonth } = this.state;
-    this.setState(
-      {
-        currentMonth: data.month
-      },
-      () => {
-        console.log(
-          'get currentMonth data successfully : ',
-          this.state.currentMonth
-        );
-      }
-    );
-  };
-
-  render() {
-    return (
-      <div>
-        {/* <div>
-          {doctors.map((e, i) => {
-            return (
-              <div className="cell" style={{ background: `${e.color}` }}>
-                {e.name} [{e.class}년차]
-              </div>
-            );
-          })}
-        </div> */}
-        {/* <MyForm /> */}
-        <MonthPicker
-          onCreate={this.handleCreate}
-          currentMonth={this.state.currentMonth}
-        />
-        {/* <CreateDoctor /> */}
-        <MyCalendar2
-          currentMonth={this.state.currentMonth}
-          doctors={this.state.doctors}
-        />
-        <LimitController
-          currentMonth={this.state.currentMonth}
-          doctors={this.state.doctors}
-        />
-
-        {/* <MyCalendar result={result[0]} msg="그냥 랜덤...연속근무가능" />
-        <MyCalendar result={result[1]} msg="연속근무 절대 불가" />
-        <MyCalendar result={result[2]} msg="다른조건추가" /> */}
-      </div>
-    );
-  }
-}
-
+  return (
+    <div>
+      <Card>
+        <Typography variant="h6" color="inherit" align="center">
+          {' '}
+          Duty Table
+        </Typography>
+      </Card>
+      <MonthPicker
+        isCreated={isCreated}
+        setIsCreated={setIsCreated}
+        setMonth={setMonth}
+        currentMonth={month}
+      />
+      <MyCalendar2
+        isCreated={isCreated}
+        currentMonth={month}
+        residents={residents}
+      />
+      <Settings
+        currentMonth={month}
+        residents={residents}
+        isCreated={isCreated}
+      />
+    </div>
+  );
+};
 export default App;

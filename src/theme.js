@@ -53,7 +53,6 @@ const themeBase = createMuiTheme({
       root: {
         height: '100%',
         margin: '5px',
-        padding: '10px',
         backgroundColor: 'rgba(255, 255, 255, 1)'
       }
     },
@@ -66,7 +65,7 @@ const themeBase = createMuiTheme({
     },
     MuiCardHeader: {
       root: {
-        marginLeft: '1.5em'
+        backgroundColor: '#eee'
       }
     },
     MuiFormGroup: {
